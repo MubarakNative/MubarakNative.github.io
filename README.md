@@ -1,7 +1,3 @@
-### Mubarak Native Website
-
-Welcome to my portfolio website! This site showcases my projects, skills, and contact information. 
-
 ## Acknowledgements
 
 - **Projects & Service Images**: [Mubarak Basha](https://nativemb.github.io/)
