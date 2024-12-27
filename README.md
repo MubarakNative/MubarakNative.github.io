@@ -2,6 +2,8 @@
 
 - **Projects & Service Images**: [Mubarak Basha](https://nativemb.github.io/)
 
+- MB-727 Mic Pre-amplifier © 2024 by Mubarak Basha is licensed under CC BY-SA 4.0
+
 ## License
 
 ```
