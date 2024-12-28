@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <title>Studio-Quality Electret Mic Preamp Build</title>
+    <style>
+        body {
+            font-family: 'DM Sans', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f9f9f9;
+            color: #333;
+        }
+
+        .profile-pic {
+            position: absolute;
+            top: 10px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            border: 2px solid #fff;
+        }
+
+        header {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+            background: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        h1,
+        h2 {
+            color: #555;
+        }
+
+        .placeholder-image {
+            width: 100%;
+            height: 200px;
+            background: #ddd;
+            text-align: center;
+            line-height: 200px;
+            color: #888;
+            margin: 10px 0;
+        }
+
+        h2 {
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        p,
+        ul,
+        ol {
+            margin-bottom: 15px;
+        }
+
+        code {
+            background: #f4f4f4;
+            padding: 2px 4px;
+            border-radius: 4px;
+            font-family: monospace;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 20px;
+            padding: 10px 0;
+            background: #333;
+            color: #fff;
+        }
+
+        .placeholder-image {
+            text-align: center;
+            width: 100%;
+            height: auto;
+            margin: 10px 0;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .video-grid iframe {
+            width: 100%;
+            height: 200px;
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>STUDIO-QUALITY ELECTRET MIC PREAMP BUILD: SOUND LIKE A STUDIO MIC GUARANTEED!</h1>
+        <img src="assets/social_img.webp" alt="Mubarak Native" class="profile-pic">
+    </header>
+    <div class="container">
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <img src="assets/mb_preamp.jpeg" alt="MB-727 Pre-amp" class="placeholder-image">
+            <p>Welcome, buddies! In today’s article, we’re going to build a studio-quality electret mic pre-amplifier
+                that
+                sounds awesome, it’ll rival professional studio microphones!</p>
+            <p>What?? I know what you’re thinking: <strong>Building a mic preamp with a cheap ECM instead of an
+                    expensive
+                    condenser mic? </strong>" Aren’t there already tons of videos and diagrams showing how to build
+                one?"</p>
+            <p>Yes, it’s true preamp <a href="https://tinyurl.com/54zrym3x">circuits are all over the internet</a>
+                circuits are all over the internet. But here’s the catch: most of them don’t
+                deliver the professional-quality sound you’re hoping for. Even if the circuit works, the audio quality
+                often includes excessive noise, distortion, or an unnatural tone.</p>
+            <p>In my opinion, the problem isn’t the mic; it’s the design of the preamp circuit. Even a generic ECM mic
+                that costs around 20 cents can sound great if the circuit is properly designed and optimized for it.
+                That’s exactly what we’re going to do in this video: design a circuit that pushes the limits of what a
+                cheap electret mic can do!</p>
+        </section>
+
+        <section id="why-circuits-fail">
+            <h2>Why Most Preamp Circuits Fail</h2>
+
+            <div class="video-grid">
+                <iframe src="https://www.youtube.com/embed/Z97ALumYsnk?si=uelyhq45tr0dj4ym" frameborder="0"
+                    allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/yRS6I1LEN_I?si=9SDKIQnS-QcTJujt" frameborder="0"
+                    allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/ts-JqEVzvDo?si=f0Ts-_Txq1ShzN0_" frameborder="0"
+                    allowfullscreen></iframe>
+                <iframe src="https://www.youtube.com/embed/Mw5qfxSLIvE?si=dnTz0b8-uoALm8UW" frameborder="0"
+                    allowfullscreen></iframe>
+            </div>
+
+            <p>The reason most preamp circuits don’t meet expectations is that designing a good preamp isn’t as simple
+                as throwing a few components together. It requires careful attention to detail and a deep understanding
+                of analog electronics.</p>
+            <ul>
+                <li><strong>Gain Calculation:</strong> Determine the required gain based on the microphone’s sensitivity
+                    and the target output level (in our case line-in signal).</li>
+                <li><strong>Impedance Matching:</strong> Ensure the circuit matches the impedance of the mic to avoid
+                    signal loss or distortion (Pc line-in).</li>
+                <li><strong>Analog Signal Processing:</strong> Handle the audio signal cleanly, without introducing
+                    unnecessary noise or distortion.(Carefully choosen bias resistor and coupling capacitor)</li>
+                <li><strong>Mic Output Calculation:</strong> Use the mic’s input sound pressure level (SPL) to calculate
+                    its electrical output.</li>
+                <li><strong>Gain deviation at certain frequencies for RC passive filter:</strong> Most commonly the gain
+                    is decreases by -3dB.
+                    (In our case it was -0.5dB @20Hz and -0.1dB @20Khz freq Response deviation)</li>
+                <li><strong>Passive Filter Design & Calculations :</strong> Calculate the cutoff frequencies for
+                    high-pass and low-pass
+                    filters to shape the audio spectrum (In our case it was Hi-fi response means 20Hz and 20Khz)</li>
+
+                <p>These are only a few of them. There are a lot of steps that remain in designing a fully featured
+                    preamp. So I decided to create a specific datasheet that includes step- by-step calculations and
+                    contains the appropriate formulas. I am currently working on it. </p>
+
+                <img src="assets/datasheet_pic_i_working_on.png" alt="MB-727 datasheet" class="placeholder-image">
+            </ul>
+        </section>
+
+        <section id="preamp-parameters">
+            <h2>Mic Preamp Parameters</h2>
+            <p>For this project, I’ve chosen a non-inverting op-amp configuration for the preamp. This configuration is
+                ideal for amplifying low-level signals from a microphone while maintaining stability and low noise.</p>
+            <p>The circuit also includes built-in high-pass and low-pass filters, which are essential for shaping the
+                audio signal:</p>
+            <ul>
+                <li><strong>High-Pass Filter:</strong> Cutoff frequency of 6.99Hz.</li>
+                <li><strong>Low-Pass Filter:</strong> Cutoff frequency of 131kHz.</li>
+            </ul>
+
+        </section>
+
+        <section id="design-notes">
+            <h2>Design Notes</h2>
+            <p><strong>This circuit is designed to be operated at 5v</strong> (Use battery supply as possible that
+                reduces the power noise that overall reduces the
+                noise of the preamp)</p>
+            <p> <strong>Note:</strong> Use low tolerance resistor and COG or tantalum capacitors as possible for this
+                design.</p>
+        </section>
+
+
+        <section id="mic-chosen">
+            <h2>Choosing correct electret mic</h2>
+            <p>As for the mic, I used a generic <strong>CZN-15E electret mic</strong>. It’s cheap, easy to find, and
+                gets the job done.
+                If you want to upgrade,
+                pick any mic with these specs:</p>
+            <ul>
+                <li><strong>Sensitivity: -32 dB at 1 Pa (94 dB SPL) @ 1 kHz</strong></li>
+                <li><strong>Standard Operating voltage: 4.5V</strong>
+                    your preamp.</li>
+                <li><strong>Current consumption: 0.5mA</strong>
+                </li>
+            </ul>
+            <p>These parameters are usually specified in a microphone datasheet.</p>
+        </section>
+
+        <section id="simulation">
+            <h2>SPICE Simulation for the Preamp</h2>
+            <img src="assets/Transient Response.png" alt="SPICE Simulation result" class="placeholder-image">
+            <p>Before building the circuit, I simulated it in LTspice to verify its performance. Simulations help catch
+                potential issues before building the actual hardware.</p>
+            <p>In the simulation result, our preamp outputs 454mV (amplitude) or 321mV (RMS),
+                which is a line-level signal that we expect from an input voltage of around 29.343mv calculated using
+                mic sensitivity -32 (Wait, I am working on designing a complete datasheet that include all the
+                calculation including this one )
+            </p>
+        </section>
+
+        <section id="real-audio-test">
+            <h2>Real Audio Test</h2>
+
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/RZR_PrxcBBU?si=r19iceRNgAdQi5k3"
+                title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <p>Of course, no preamp build is complete without a real-world test. I’ll connect the preamp to the electret
+                mic and record audio samples with a distance of 50cm from mic to audio source. This will give you a
+                clear idea of how the circuit performs and what kind
+                of audio quality you can expect.</p>
+        </section>
+
+        <section id="connecting-to-pc">
+            <h2>Connecting the Preamp to a PC (Line-In Port)</h2>
+            <img src="assets/line-in_port_in_pc.jpeg" alt="Line-in port on pc" class="placeholder-image">
+            <p>Here’s a quick but important note: do NOT connect the output of this preamp to your PC’s mic input.
+                Instead, connect it to the line-in port. This setup ensures you get the best sound quality without
+                distortion or noise.</p>
+            <p>
+                To connect the preamp’s output to a device like your PC or recorder, you’ll need a <strong>3.5mm TRS
+                    cable</strong>. Since our circuit is mono, we’ll only use the <strong>Tip</strong> and
+                <strong>Sleeve</strong> connections, while the <strong>Ring</strong> will remain unconnected. Here’s how
+                it works:
+            </p>
+            <ul>
+                <li><strong>Tip (Left Channel):</strong> Connect the <em>Tip</em> of the TRS cable to the
+                    <em>output</em> of your preamp. This carries the audio signal from the circuit.
+                </li>
+                <li><strong>Sleeve (Ground):</strong> Connect the <em>Sleeve</em> to the <em>ground</em> of your preamp
+                    circuit. This ensures proper grounding and minimizes noise.</li>
+                <li><strong>Ring (Right Channel):</strong> Since this is a mono circuit, the <em>Ring</em> will not be
+                    connected. This is perfectly fine as the mono signal will still work properly with most devices,
+                    which automatically route the mono signal to both left and right channels.</li>
+            </ul>
+            <p>
+                Using a TRS cable ensures compatibility with standard audio devices, like the line-in port on a PC or an
+                external recorder. Plus, it provides a clean and professional connection for your project.
+            </p>
+        </section>
+
+        <section id="op-amp-selection">
+            <h2>Op-Amp Selection</h2>
+            <p>For this project, I’m using the NE5532P op-amp, but I recommend the <a
+                    href="https://www.ti.com/product/LM833">LM833</a> for its excellent audio
+                performance, including high slew rate, wide gain-bandwidth product, and low noise.</p>
+        </section>
+
+        <section>
+            <h2>Download Schematics</h2>
+            <p>Click the link below to download the schematic diagram of the electret mic preamplifier as a PDF, later i
+                will also add a datasheet:</p>
+            <a href="/assets/MB_727_v1_Schematics.pdf" download="Electret_Mic_Preamplifier_Schematics.pdf">Download Schematics PDF</a>
+        </section>
+
+        <section>
+            <h2>License</h2>
+            <p xmlns:cc="http://creativecommons.org/ns#" xmlns:dct="http://purl.org/dc/terms/"><span
+                    property="dct:title">MB-727 Studio Electret Pre-amp</span> by <a rel="cc:attributionURL dct:creator"
+                    property="cc:attributionName" href="https://mubaraknative.github.io/">Mubarak Basha</a> is licensed
+                under <a href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank"
+                    rel="license noopener noreferrer" style="display:inline-block;">CC BY-SA 4.0<img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img
+                        style="height:22px!important;margin-left:3px;vertical-align:text-bottom;"
+                        src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a></p>
+        </section>
+
+        <section id="conclusion">
+            <h2>Wrapping It Up</h2>
+            <p>This project proves you don’t need expensive microphones or equipment to achieve great audio quality.
+                With the right design, even a budget electret mic can deliver studio-level performance.</p>
+            <p>If you’re passionate about audio and love DIY projects, give this a try! Share your results or ask
+                questions in the contact page of my website—I’d love to hear from you. If you found this article helpful and would like to
+                support my work, consider supporting my work through sharing with your hobbyist friends and family
+                member.
+                Your contributions help me continue creating exciting
+                electronics projects and sharing knowledge with the community. For feedback or improvement <a
+                    href="https://mubaraknative.github.io/contact.html">contact me</a> with a Project name of MB-727
+                Preamp.</p>
+        </section>
+
+    </div>
+    <footer>
+        <p>&copy; 2024 Mubarak Basha. All rights reserved.</p>
+    </footer>
+</body>
+
+</html>
