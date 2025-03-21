@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mubarak Basha - Android Developer | Embedded Systems Developer</title>
+
+
+    <link rel="icon" href="assets/favi_icon/favicon_32_ico.ico" type="image/x-icon">
+    <link rel="icon" href="assets/favi_icon/favicon_32.png" type="image/png" sizes="32x32">
+    <link rel="icon" href="assets/favi_icon/favicon_16.png" type="image/png" sizes="16x16">
+
+
+        <!-- Google Font (my brand font) -->
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link
+            href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+            rel="stylesheet">
+    
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    
+        <!-- Style.css -->
+        <link rel="stylesheet" href="css/style.css">
+    
+        <!-- Material Icons -->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    <style>
+        /* Global Styles */
+
+   /* Global Styles */
+   body {
+            margin: 0;
+            text-align: center; 
+        }
+
+
+        .grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
+    margin-top: 80px; /* Default spacing for larger screens */
+    margin-bottom: 30px;
+    padding: 10px;
+}
+
+        /* Blog Card Styling */
+        .post-card {
+            background: transparent;
+            border: 2px solid rgba(69, 204, 222, 0.7);
+            border-radius: 12px;
+            box-shadow: none;
+            overflow: hidden;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+            text-align: left;
+        }
+        .post-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(69, 204, 222, 1);
+        }
+
+        /* Image Styling */
+        .post-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            border-bottom: 2px solid rgba(69, 204, 222, 0.5);
+        }
+
+        /* Blog Content Styling */
+        .post-content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .post-title {
+            font-size: 20px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .post-title a {
+            text-decoration: none;
+            color: #45CCDE;
+        }
+        .post-title a:hover {
+            text-decoration: underline;
+        }
+
+        .post-description {
+            font-size: 14px;
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .post-date {
+            font-size: 12px;
+            color: #888;
+        }
+
+        .view-all-btn {
+        display: inline-block;
+        padding: 12px 20px;
+        background-color: #45CCDE; /* Your brand color */
+        color: white;
+        text-decoration: none;
+        font-size: 16px;
+        font-weight: bold;
+        border-radius: 5px;
+        transition: background 0.3s ease;
+    }
+
+    .view-all-btn:hover {
+        background-color: #36A7B4; /* Slightly darker shade for hover effect */
+    }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Adjust margin-top for smaller screens */
+@media (max-width: 768px) {
+    .grid-container {
+        margin-top: 60px; /* Less space on mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        margin-top: 50px; /* Even less space for very small screens */
+    }
+}
+
+
+    </style>
+
+    <!-- Google Font (my brand font) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+        rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+</head>
+<body>
+
+
+    <div class="grid-container" id="blog-posts">Loading...</div>
+
+    <!-- Main Header -->
+    <header class="header" id="header">
+        <nav class="nav container">
+            <a href="/" class="nav-logo">Mubarak Native</a>
+
+            <div class="nav-menu" id="nav-menu">
+                <ul class="nav-list grid">
+                    <li class="nav-item">
+                        <a href="/index.html" class="nav-link active-link">
+                            <i class="fas fa-home nav-link-icon"></i> Home
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/about.html" class="nav-link">
+                            <i class="fas fa-user nav-link-icon"></i> About
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/skills.html" class="nav-link">
+                            <i class="fas fa-file-alt nav-link-icon"></i> Skills
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/services.html" class="nav-link">
+                            <i class="fas fa-briefcase nav-link-icon"></i> Services
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/projects.html" class="nav-link">
+                            <i class="fas fa-image nav-link-icon"></i> Projects
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/blog.html" class="nav-link">
+                            <i class="fas fa-image nav-link-icon"></i> Blog
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/contact.html" class="nav-link">
+                            <i class="material-icons nav-link-icon">perm_contact_calendar</i> Contact Me
+                        </a>
+                    </li>
+                </ul>
+                <i class="fas fa-times nav-close" id="nav-close"></i>
+            </div>
+            <div class="nav-btns">
+
+                <!-- Switch theme -->
+                <i class="fas fa-moon change-theme" id="theme-button"></i>
+
+                <div class="nav-toggle" id="nav-toggle">
+                    <i class="material-icons">menu</i>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- View All Articles Button -->
+    <div style="margin-top: 30px;">
+        <a href="https://medium.com/@mubaraknative" target="_blank" class="view-all-btn">View All Articles</a>
+    </div>
+
+    <script>
+        async function fetchBlogPosts() {
+            const url = "https://api.rss2json.com/v1/api.json?rss_url=https://medium.com/feed/@mubaraknative";
+
+            try {
+                const response = await fetch(url);
+                const data = await response.json();
+
+                if (data.status !== "ok") {
+                    document.getElementById("blog-posts").innerHTML = "Failed to load posts.";
+                    return;
+                }
+
+                const posts = data.items;
+                let html = "";
+
+                posts.forEach(post => {
+                    let imageUrl = post.thumbnail;
+
+                    if (!imageUrl || imageUrl.includes("medium.com/_/stat?event=post.preview")) {
+                        const imgMatch = post.description.match(/<img.*?src=["'](.*?)["']/);
+                        if (imgMatch) {
+                            imageUrl = imgMatch[1];
+                        } else {
+                            imageUrl = "https://via.placeholder.com/600x400?text=No+Image";
+                        }
+                    }
+
+                    html += `
+                        <div class="post-card">
+                            <img src="${imageUrl}" alt="Post Image" class="post-image">
+                            <div class="post-content">
+                                <div class="post-title">
+                                    <a href="${post.link}" target="_blank">${post.title}</a>
+                                </div>
+                                <div class="post-description">
+                                    ${post.description.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 120)}...
+                                </div>
+                                <div class="post-date">
+                                    📅 Published on: ${new Date(post.pubDate).toDateString()}
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+
+                document.getElementById("blog-posts").innerHTML = html;
+            } catch (error) {
+                document.getElementById("blog-posts").innerHTML = "Error fetching posts.";
+            }
+        }
+
+        fetchBlogPosts();
+    </script>
+
+            <!-- Footer -->
+            <footer class="footer">
+                <div class="footer-bg">
+                    <div class="footer-container container grid">
+                        <div class="footer-texts">
+                            <h1 class="footer-title">Mubarak Basha</h1>
+        
+                            <span class="footer-subtitle">Native Android Developer <br> Embedded Systems Developer</br>
+                                Passionate about sharing true insights.</span>
+                        </div>
+        
+                        <div class="footer-socials">
+                            <a href="https://github.com/MubarakNative/" target="_blank"
+                                aria-label="Visit Mubarak Native on GitHub" title="Visit GitHub Profile">
+                                <i class="fab fa-github footer-social"></i>
+                            </a>
+                            <a href="https://mubaraknative.medium.com/" target="_blank"
+                                aria-label="Visit Mubarak Native on Medium" title="Visit Medium Profile">
+                                <i class="fab fa-medium footer-social"></i>
+                            </a>
+                            <a href="https://www.youtube.com/@mubaraknative/community" target="_blank"
+                                aria-label="Visit Mubarak Native on YouTube" title="Visit YouTube Channel">
+                                <i class="fab fa-youtube footer-social"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <p class="footer-copy">&#169; 2025 Mubarak Native. All right reserved</p>
+                </div>
+            </footer>
+
+        <!-- Scroll to Top -->
+        <a href="#" class="scrollup" id="scroll-up">
+            <i class="material-icons scrollup-icon">arrow_upward</i>
+        </a>
+    
+        <!-- Icon Library-->
+        <script src="https://kit.fontawesome.com/027d3564f6.js" crossorigin="anonymous"></script>
+    
+        <!-- Swiper Pager-->
+        <script src="js/swiper-bundle.js"></script>
+    
+        <!-- Script.Js -->
+        <script src="js/script.js"></script>
+</body>
+</html>
