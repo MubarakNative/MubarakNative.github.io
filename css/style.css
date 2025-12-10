@@ -438,10 +438,14 @@ img {
 
 .about-container-data-description {
     margin-bottom: var(--mb-2);
+        color: #45CCDE;             /* Your brand color */
+
     margin-top: var(--mb-2);
     font-size: var(--smaller-font-size);
     max-width: max-content
 }
+
+
 
 .about-container-data-info {
     display: flex;
